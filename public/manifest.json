@@ -1,0 +1,8 @@
+{
+  "short_name": "bountinator",
+  "name": "bountinator",
+  "start_url": ".",
+  "theme_color": "#260065",
+  "background_color": "#260065",
+  "display": "standalone"
+}

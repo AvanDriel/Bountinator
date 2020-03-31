@@ -1,0 +1,13 @@
+//Main stylesheet, import all here
+@import 'style/reset.scss';
+@import 'style/colors.scss';
+@import 'style/typography.scss';
+@import 'style/App.scss';
+@import 'style/flex-grid';
+
+//Animations
+
+// Containers
+@import 'style/containers/homepage.scss';
+
+// Components
