@@ -5,6 +5,7 @@ class Homepage extends Component {
     return (
       <div className="homepage">
         <h1>Bountinator</h1>
+        <p>test 123</p>
       </div>
     );
   }
