@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import Background from '../img/poster.jpg'
 
 class Homepage extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: '' };
+    this.state = { value: '', image: new Image() };
+
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -26,24 +28,35 @@ class Homepage extends Component {
     this.setWantedScore(WantedScore)    
   }
   setWantedScore(x) {
-    let canvas = document.getElementById("myCanvas")
+    let canvas = document.querySelector("#myCanvas")
+    canvas.width = 793;
+    canvas.height = 1122;
     let ctx = canvas.getContext("2d")
-    ctx.font = "100px Ariel"
+    
+
+
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
     ctx.textAlign = "center"; 
-
-    ctx.fillText("Most Wanted!!",308,110)
-    ctx.fillText("$ " + x, 308,400)
-    ctx.fillText(this.state.value, 308,208)
+    var img = document.getElementById("scream");
+    ctx.drawImage(img, canvas.width / 2 - 331, 10);
+    ctx.font = "100px Viner Hand ITC"
+    ctx.fillText("$ " + x, canvas.width / 2,470)
+    ctx.fillText(this.state.value, canvas.width / 2,290)
+    // const dataUri = canvas.toDataURL();
+    // img.src = dataUri
+    
 
   }
   numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
+  printCanvas(){
+  }
   render() {
     return (
       <div className="homepage">
         <h1>Bountinator</h1>
+        <img  id="scream" width="220" height="277" src={Background} alt="The Scream"></img>
         <div className="row pt-5 align-items-center justify-content-md-center">
           <div className="col"></div>
           <div className="col">
@@ -54,21 +67,23 @@ class Homepage extends Component {
               </div>
               <div className="form-check">
                 <input type="checkbox" className="form-check-input" id="FormCheckBox"></input>
-                <small id="checkboxHelp" className="form-text text-muted pl-2">Accept user agreement</small>
+                <small id="checkboxHelp" className="form-text text-muted pl-2">Accept user agreement<div style={{fontSize:"4px"}}>*All your data will belong to us</div></small>
               </div>
               <button type="submit" className="btn btn-primary">Submit</button>
             </form>
           </div>
-          <div className="col"></div>
-        </div>
-        <div className="row pt-5 align-items-center justify-content-md-center">
-          <div className="col"></div>
           <div className="col">
-            <canvas id="myCanvas" width="618" height="618" style={{ border: "1px solid #d3d3d3"}}>
+          <button onClick={this.printCanvas}>
+  Print Poster
+</button>
+          </div>
+        </div>
+        <div className="row align-items-center justify-content-md-center">
+          <div className="col" style={{width:"100%", textAlign:"center"}}>
+            <canvas id="myCanvas" style={{border:"1px solid black", paddingLeft:"0", paddingRight:"0", marginLeft:"auto", display:"inline"}} >
               Your browser does not support the canvas element.
 </canvas>
           </div>
-          <div className="col"></div>
         </div>
       </div>
 
