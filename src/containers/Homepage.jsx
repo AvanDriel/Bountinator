@@ -122,7 +122,6 @@ ctx.filter = 'sepia(100%'
             </div>
           </div>
       </div>
-      <img src={this.state.image} alt=""></img>
       </div>
       
 
