@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Background from '../img/poster.jpg'
+import QR from '../img/QR.png'
 import CaptureImage from '../containers/Camera'
 
 
@@ -42,15 +43,20 @@ class Homepage extends Component {
     ctx.textAlign = "center";
     var img = document.getElementById("scream");
     var img1 = document.getElementById("photo");
+    var img2 = document.getElementById("QR")
     img1.src = this.state.imageSrc
-    img1.filter = 'sepia(100%)'
     console.log(img1)
     ctx.drawImage(img, canvas.width / 2 - 331, 10);
-    ctx.drawImage(img1, canvas.width / 2 - 180, 240);
+    ctx.drawImage(img2, 160,30);
     ctx.font = "70px Viner Hand ITC"
     ctx.fillStyle = "#473301"
+ctx.filter = 'sepia(100%'
+    ctx.drawImage(img1, canvas.width / 2 - 180, 270);
     ctx.fillText("$ " + x, canvas.width / 2, 530)
+
     ctx.fillText(this.state.value, canvas.width / 2, 250)
+
+
     // const dataUri = canvas.toDataURL();
     // img.src = dataUri
 
@@ -72,12 +78,20 @@ class Homepage extends Component {
     return (
       <div>
       <div className="homepage">
-        <CaptureImage parentCallback={this.test}></CaptureImage>
           <h1>Bountinator</h1>
           <img id="scream" width="220" height="277" style={{ display: "none"}} src={Background} alt="The Scream"></img>
-          <img id="photo" width="220" height="277" style={{ display: "none", filter: "sepia(100%)" }} src={Background} alt="photo"></img>
-          <div className="row pt-5 align-items-center justify-content-md-center">
+          <img id="QR" width="220" height="277" style={{ display: "none"}} src={QR} alt="The Scream"></img>
+          <img id="photo"  style={{ display: "none", filter: "sepia(100%)" }} alt="photo"></img>
+          <div className="row align-items-center justify-content-md-center">
             <div className="col"></div>
+        
+            <div className="col"><CaptureImage parentCallback={this.test}></CaptureImage></div>
+            <div className="col"></div>
+          </div>
+          <div className="row pt-5 align-items-center justify-content-md-center">
+            <div className="col">
+
+            </div>
             <div className="col">
               <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
@@ -92,11 +106,12 @@ class Homepage extends Component {
               </form>
             </div>
             <div className="col">
-              <button onClick={this.printCanvas}>
-                Print Poster
-</button>
+                {/* <button onClick={this.printCanvas}>
+                  Print Poster
+  </button> */}
             </div>
           </div>
+
           <div className="row align-items-center justify-content-md-center">
             <div className="col" style={{ width: "100%", textAlign: "center" }}>
               <canvas id="myCanvas" style={{ border: "1px solid black", paddingLeft: "0", paddingRight: "0", marginLeft: "auto", display: "inline" }} >
