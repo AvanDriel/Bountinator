@@ -85,7 +85,9 @@ ctx.filter = 'sepia(100%'
           <div className="row align-items-center justify-content-md-center">
             <div className="col"></div>
         
-            <div className="col"><CaptureImage parentCallback={this.test}></CaptureImage></div>
+            <div className="col">
+              <h1 style={{fontSize:40+'px', float:'center'}}>Create your own wanted poster on your bad behavior on the internet!</h1>
+              <CaptureImage parentCallback={this.test}></CaptureImage></div>
             <div className="col"></div>
           </div>
           <div className="row pt-5 align-items-center justify-content-md-center">
